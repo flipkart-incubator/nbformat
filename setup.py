@@ -7,7 +7,7 @@
 from __future__ import print_function
 
 # the name of the project
-name = 'nbformat'
+name = 'fk-nbformat'
 
 #-----------------------------------------------------------------------------
 # Minimal Python version sanity check
@@ -60,13 +60,13 @@ setup_args = dict(
     scripts         = glob(pjoin('scripts', '*')),
     packages        = packages,
     package_data    = package_data,
-    description     = "The Jupyter Notebook format",
+    description     = "MLP's fork of Jupyter's nbformat",
     long_description= """
     This package contains the base implementation of the Jupyter Notebook format,
     and Python APIs for working with notebooks.
     """,
-    author          = 'Jupyter Development Team',
-    author_email    = 'jupyter@googlegroups.com',
+    author          = 'ml-platform',
+    author_email    = 'ml-platform@flipkart.com',
     url             = 'http://jupyter.org',
     license         = 'BSD',
     platforms       = "Linux, Mac OS X, Windows",

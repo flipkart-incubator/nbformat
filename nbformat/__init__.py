@@ -75,7 +75,7 @@ def reads(s, as_version, **kwargs):
     if as_version is not NO_CONVERT:
         nb = convert(nb, as_version)
     try:
-        validate(nb)
+        validate(nb, relax_add_props=True)
     except ValidationError as e:
         get_logger().error("Notebook JSON is invalid: %s", e)
     return nb
@@ -105,7 +105,7 @@ def writes(nb, version=NO_CONVERT, **kwargs):
     else:
         version, _ = reader.get_version(nb)
     try:
-        validate(nb)
+        validate(nb, relax_add_props=True)
     except ValidationError as e:
         get_logger().error("Notebook JSON is invalid: %s", e)
     return versions[version].writes_json(nb, **kwargs)

@@ -56,6 +56,28 @@ def reads(s, **kwargs):
     from . import versions, NBFormatError
     
     nb_dict = parse_json(s, **kwargs)
+    if not nb_dict.get('new_untitled', False):
+        nb_dict['metadata'] = {
+          "kernelspec": {
+           "display_name": "Python 3",
+           "language": "python",
+           "name": "python3"
+          },
+          "language_info": {
+           "codemirror_mode": {
+            "name": "ipython",
+            "version": 3
+           },
+           "file_extension": ".py",
+           "mimetype": "text/x-python",
+           "name": "python",
+           "nbconvert_exporter": "python",
+           "pygments_lexer": "ipython3",
+           "version": "3.7.3"
+          }
+         }
+    if 'new_untitled' in nb_dict.keys():
+        del nb_dict['new_untitled']
     (major, minor) = get_version(nb_dict)
     if major in versions:
         return versions[major].to_notebook_json(nb_dict, minor=minor)
