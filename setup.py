@@ -7,7 +7,7 @@
 from __future__ import print_function
 
 # the name of the project
-name = 'fk-nbformat'
+name = 'nbformat'
 
 #-----------------------------------------------------------------------------
 # Minimal Python version sanity check
